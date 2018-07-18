@@ -200,3 +200,25 @@ phoneBook = {'Alice':'2341', 'Beth':'9102', 'Cecil':'3258'}
 + d[key] = v
 + del d[key]
 + k in d
+
+#### String Formatting with Dictionaries
+```
+>>> temp = '''<html><head><title>{title}</title></head></html>'''
+print(temp.format_map('title':'Halo'))
+<html><head><title>Halo</title></head></html>
+```
+
+#### Dictionary Methods
++ clear
++ copy
++ fromkeys
+```
+>>> {}.fromkeys(['name', 'age'])
+{'age':None, 'name':None}
+```
++ get
+```
+d = {}
+print(d.get('name'))
+None
+```
