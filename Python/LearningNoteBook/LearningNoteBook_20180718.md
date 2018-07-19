@@ -222,3 +222,12 @@ d = {}
 print(d.get('name'))
 None
 ```
++ items
+```
+>>> d = {'title':23, 'header':32}
+>>> d.items()
+dict_items([('title':23), ('header':32)])
+```
++ keys
++ pop
++ popitem
