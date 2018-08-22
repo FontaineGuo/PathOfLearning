@@ -14,7 +14,7 @@ class CommandHandler:
     '''    
     def unknown(self, session, cmd):
         'Respond to an unknown command'
-        session.push('Unknown command:{}s\r\n'.format(cmd))
+        session.push('Unknown command:{}s\r\n'.format(cmd).encode('utf-8'))
 
     def handle(self, session, line):
         'Handle a received line from a given session'
@@ -53,42 +53,45 @@ class Room(CommandHandler):
 class LoginRoom(Room):
     def add(self, session):
         Room.add(self, session)
-        self.broadcast('Welcome to {}\r\n'.format(self.server.name))
+        self.broadcast('Welcome to {}\r\n'.format(self.server.name).encode('utf-8'))
 
     def unknown(self, session, cmd):
-        session.push('Please log in \nUse "login <nick>"\r\n')
+        session.push('Please log in \nUse "login <nick>"\r\n'.encode('utf-8'))
     
     def do_login(self, session, line):
         name = line.strip()
         if not name:
-            session.push('Please entera a name\r\n')
+            session.push('Please entera a name\r\n'.encode('utf-8'))
         elif name in self.server.users:
-            session.push('The name "{}" is taken.\r\n'.format(name))
-            session.push('Please try again.\r\n')
+            session.push('The name "{}" is taken.\r\n'.format(name).encode('utf-8'))
+            session.push('Please try again.\r\n'.encode('utf-8'))
         else:
+            session.name = name
             session.enter(self.server.main_room)
+
+
 class ChatRoom(Room):
     def add(self, session):
-        self.broadcast(session.name + 'has entered the room,\r\n')
+        self.broadcast((session.name + 'has entered the room,\r\n').encode('utf-8'))
         self.server.users[session.name] = session
         super().add(session)
     
     def remove(self, session):
         Room.remove(self, session)
-        self.broadcast(session.name + ' has left the room.\r\n')
+        self.broadcast((session.name + ' has left the room.\r\n').encode('utf-8'))
     
     def do_say(self, session, line):
-        self.broadcast(session.name + ': ' + line + '\r\n')
+        self.broadcast((session.name + ': ' + line + '\r\n').encode('utf-8'))
 
     def do_look(self, session, line):
-        session.push('The following are in this room:\r\n')
+        session.push('The following are in this room:\r\n'.encode('utf-8'))
         for other in self.sessions:
-            session.push(other.name + '\r\n')
+            session.push((other.name + '\r\n').encode('utf-8'))
 
     def do_who(self, session, line):
-        session.push('The folliwing are logger in:\r\n')
+        session.push('The folliwing are logger in:\r\n'.encode('utf-8'))
         for name in self.server.users:
-            session.push(name + '\r\n')
+            session.push((name + '\r\n').encode('utf-8'))
 
 class LogoutRoom(Room):
     def add(self, session):
@@ -97,9 +100,9 @@ class LogoutRoom(Room):
 
 class ChatSession(async_chat):
     def __init__(self, server, sock):
-        super().__init__(self, sock)
+        super().__init__(sock)
         self.server = server
-        self.set_terminator("\r\n")
+        self.set_terminator(b"\r\n")
         self.data = []
         self.name = None
         self.enter(LoginRoom(server))
@@ -115,7 +118,7 @@ class ChatSession(async_chat):
         room.add(self)    
 
     def collect_incoming_data(self, data):
-        self.data.append(data)
+        self.data.append(data.decode('utf-8'))
     
     def found_terminator(self):
         line = ''.join(self.data)
