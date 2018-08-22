@@ -28,3 +28,9 @@ result
 <bound method fun2.sub_fun_two of <__main__.fun2 object at 0x0000019CD28340B8>>
 
 ```
+
+#### Chapter 25 Q&A
+```
+https://stackoverflow.com/questions/24928908/python3-type-str-doesnt-support-the-buffer-api
+
+```
