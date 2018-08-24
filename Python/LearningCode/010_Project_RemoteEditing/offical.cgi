@@ -1,3 +1,4 @@
+# ! /home/fontaine/anaconda3/bin/python3.6
 import cgi
 form = cgi.FieldStorage()
 text = form.getvalue('text', open('simple_edit.dat').read())
