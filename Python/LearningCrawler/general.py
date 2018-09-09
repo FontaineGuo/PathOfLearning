@@ -8,7 +8,7 @@ def create_project_dir(directory):
 
 
 # create quene file and crawled files (if not created)
-def create_data_file(project_name, base_url):
+def create_data_files(project_name, base_url):
     quene = project_name + '/quene.txt'
     crawled = project_name + '/crawled.txt'
 
