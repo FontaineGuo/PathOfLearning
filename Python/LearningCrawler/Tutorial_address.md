@@ -1,6 +1,0 @@
-## About this Crawler
-
-following this link 
-
-
-https://www.youtube.com/watch?v=nRW90GASSXE&list=PL6gx4Cwl9DGA8Vys-f48mAH9OKSUyav0q&index=1
