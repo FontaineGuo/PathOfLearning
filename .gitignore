@@ -1,2 +1,6 @@
+## ignore pycharm
+.idea
+## ignore vscode
+.vscode
+__pycache__
 
-Python/LearningCrawler/.vscode/settings.json
