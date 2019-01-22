@@ -8,10 +8,10 @@ import os
 
 
 # the root path of the _retail folder
-retail_path = r'H:\Documents\坚果云同步'
+retail_path = r'F:\BattleNetApps\World of Warcraft\_retail_'
 
 # the path of WTF files, which contains personal setting profiles
-folder_names = [r'homework作业区', r'常用小工具']
+folder_names = [r'Interface', r'WTF']
 
 # zip file target
 target_path = '' 
@@ -34,7 +34,7 @@ def ZipDir(rootpath, dirs,outFilePath):
                 relative_path = absolute_path.replace(parent_folder+'\\', '')
                 zip_tar.write(absolute_path, relative_path)
                 print("Add '%s' to archive." % absolute_path)
-
+    print('done')
     zip_tar.close()
 
 if __name__ == '__main__':
