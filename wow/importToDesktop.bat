@@ -2,6 +2,7 @@ rmdir  /s/q  "E:\BattleNet\BattleNetApps\World of Warcraft\_retail_\Interface"
 rmdir  /s/q  "E:\BattleNet\BattleNetApps\World of Warcraft\_retail_\WTF"
 
 python importScript.py
+rmdir  /s/q  ".\Addons"
 chcp 65001
-echo ±¸·ÝÍê³É
+echo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 pause & exit
