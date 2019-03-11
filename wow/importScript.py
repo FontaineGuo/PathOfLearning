@@ -58,6 +58,6 @@ print("extract addons zip")
 if not os.path.exists(tempDir):
                 os.makedirs(tempDir)
 zipf.extractall(path = tempDir)
-move_dir(".\\Addons", "C:\\Users\\Fontaine\\Desktop\\Temp")
+move_dir(".\\Addons", "E:\\BattleNet\\BattleNetApps\\World of Warcraft\\_retail_")
 os.removedirs(tempDir)
    
