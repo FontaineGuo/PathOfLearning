@@ -4,3 +4,5 @@
 .vscode
 __pycache__
 
+## ignore addon.zip
+/wow/Addons.zip
