@@ -8,7 +8,7 @@ import os
 
 
 # the root path of the _retail folder
-retail_path = r'F:\BattleNetApps\World of Warcraft\_retail_'
+retail_path = r'I:\BattleNetApps\World of Warcraft\_retail_'
 
 # the path of WTF files, which contains personal setting profiles
 folder_names = [r'Interface', r'WTF']
@@ -38,4 +38,4 @@ def ZipDir(rootpath, dirs,outFilePath):
     zip_tar.close()
 
 if __name__ == '__main__':
-    ZipDir(retail_path,folder_names, r'Addons.zip')
+    ZipDir(retail_path,folder_names, r'E:\坚果云同步\常用小工具\Addons.zip')
