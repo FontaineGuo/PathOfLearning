@@ -6,3 +6,6 @@ __pycache__
 
 ## ignore addon.zip
 /wow/Addons.zip
+
+## ignore generated pdf
+/OpenCourse/MIT6.006-Introduction toAlgorithms/NoteBook/MIT6006_Notebook.pdf
